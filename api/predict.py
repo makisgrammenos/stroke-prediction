@@ -11,14 +11,15 @@ def predict(data):
 
     data = np.array(data).reshape(1,-1)
 
-    predictions = {}
+    predictions = dict()
 
-    predictions['neural_network'] = neural_network.predict(data)
+    predictions['neural_network'] = neural_network.predict(data).tolist()
 
-    predictions['random_forest']  = random_forest.predict(data)
+    predictions['random_forest']  = random_forest.predict(data).tolist()
 
     return  predictions
 
 
 if __name__ == "__main__":
-    print(predict([62,1,0,0,0,0,1,1,100,28,0,0,0,1,0,0,0,1,0]))
+    pass
+    # print(predict([62,1,0,0,0,0,1,1,100,28,0,0,0,1,0,0,0,1,0]))
