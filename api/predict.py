@@ -8,8 +8,7 @@ from sklearn.ensemble import RandomForestClassifier
 def predict(data):
     random_forest = pickle.load(open("../model/RandomForest.sav", 'rb'))
     neural_network = keras.models.load_model("../model/NeuralNetwork.h5")
-    print (neural_network.summary())
-    exit()
+
     data = np.array(data).reshape(1,-1)
 
     predictions = dict()
