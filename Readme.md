@@ -11,7 +11,14 @@ I created  and trained a simple Neural Network model and a RandomForest model to
 Both models are trained with the publicly available  [stroke prediction](https://www.kaggle.com/fedesoriano/stroke-prediction-dataset) dataset on Kaggle.
 Then I created a simple REST API service with Flask to serve the models predictions based on HTTP requests
 
+## About the data
 
+### One-Hot encoding
+One-Hot Encoding has been applied on the dataset.All non-binary discrete features (N) have been "split" into N  columns containing binary values 
+representing whether  a feature exist in the data sample
+ 
+### Oversampling
+As the data are imbalanced, oversampling has been applied to balance the dataset  (smote method)
 ## Deep Neural Network
 
 This is a simple dense neural network created with keras running on top of tensorflow. The model uses a tensor with size (19.1) as input,
@@ -42,4 +49,40 @@ Total params: 31,298
 Trainable params: 31,298
 Non-trainable params: 0
 _________________________________________________________________
+```
+
+## Random Forest 
+
+This is a simple Random Forest  model which comes predefined (not trained) in `scikit-learn` python library.
+
+
+## Environment
+To setup the environment install Anaconda3 if you don't have it installed already and then run 
+```commandline
+conda env create -f environment.yml
+```
+## The API
+
+The REST API is designed with FLASK library on python.To run the API service  only navigate to `api` folder in your terminal and run
+```commandline
+python api.py
+```
+Once flask server has started you can  send a POST request using any HTTP requests tool to `http://localhost/predict`
+
+Example of post request  JSON  body:
+```json
+{
+    "gender":"Female",
+    "age":80,
+    "hypertension":"Yes",
+    "heart_disease":"No",
+    "ever_married":"Yes",
+    "bmi":32,
+    "residence_type":"Urban",
+    "avg_glucose":150.03,
+    "job_type":"Private",
+    "smoking_status":"Smokes"
+
+}
+
 ```
