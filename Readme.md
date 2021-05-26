@@ -1,6 +1,5 @@
 # Stroke Prediction web app
 
-# DISCLAIMER
 
 
 
